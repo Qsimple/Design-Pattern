@@ -4,27 +4,24 @@ import com.qyz.dp.state.state.ConnectedState;
 import com.qyz.dp.state.state.IState;
 import com.qyz.dp.state.state.LoginIntoSystem;
 import com.qyz.dp.state.state.LoginingState;
+import com.qyz.dp.state.state.StateEnum;
 import com.qyz.dp.state.state.UnconnectedState;
 
 public class Context {
 	
 	
-	public static final IState UNCONNECTED_STATE = new UnconnectedState();
+	public static final IState UNCONNECTED_STATE = new UnconnectedState(StateEnum.UNCONNECTED);
 	
-	public static final IState CONNECTED_STATE = new ConnectedState();
+	public static final IState CONNECTED_STATE = new ConnectedState(StateEnum.CONNECTED);
 	
-	public static final IState LOGINING_STATE = new LoginingState();
+	public static final IState LOGINING_STATE = new LoginingState(StateEnum.LOGINING);
 	
-	public static final IState LOGIN_INTO_SYSTEM_STATE = new LoginIntoSystem();
+	public static final IState LOGIN_INTO_SYSTEM_STATE = new LoginIntoSystem(StateEnum.LOGIN_INTO_SYSTEM);
 	
 	private IState state;
 	
 	public Context(IState initState)
 	{
-//		UNCONNECTED_STATE.setContext(this);
-//		CONNECTED_STATE.setContext(this);
-//		LOGINING_STATE.setContext(this);
-//		LOGIN_INTO_SYSTEM_STATE.setContext(this);
 		initState(initState);
 	}
 	
