@@ -4,21 +4,16 @@ import com.qyz.dp.state.context.Context;
 
 public class ConnectedState extends AbstractState {
 
-	public ConnectedState(StateEnum stateEnum)
-	{
-		super(stateEnum);
-	}
-	
 	@Override
 	public IState connect(Context context) {
-		IState nextState = Context.CONNECTED_STATE;
+		IState nextState = StateEnum.CONNECTED.getState();
 		System.out.println(String.format("已经连接了，Switch state from %s to %s", context.getState(), nextState));
 		return nextState;
 	}
 
 	@Override
 	public IState beginToLogin(Context context) {
-		IState nextState = Context.LOGINING_STATE;
+		IState nextState = StateEnum.LOGINING.getState();
 		System.out.println(String.format("Switch state from %s to %s", context.getState(), nextState));
 		return nextState;
 	}

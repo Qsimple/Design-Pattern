@@ -4,12 +4,9 @@ import com.qyz.dp.state.context.Context;
 
 public class UnconnectedState extends AbstractState{
 
-	public UnconnectedState(StateEnum stateEnum) {
-		super(stateEnum);
-	}
 	@Override
 	public IState connect(Context context) {
-		IState nextState = Context.CONNECTED_STATE;
+		IState nextState = StateEnum.CONNECTED.getState();
 		System.out.println(String.format("Switch state from %s to %s", context.getState(), nextState));
 		return nextState;
 	}

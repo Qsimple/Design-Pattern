@@ -1,13 +1,13 @@
 package com.qyz.dp.state.client;
 
 import com.qyz.dp.state.context.Context;
+import com.qyz.dp.state.state.StateEnum;
 
 public class Client {
 
 	public static void main(String[] args) {
 		
-		Context context = new Context(Context.UNCONNECTED_STATE);
-		
+		Context context = new Context(StateEnum.UNCONNECTED.getState());
 		context.connect();
 		context.beginToLogin();
 		context.loginFailure();
@@ -15,7 +15,6 @@ public class Client {
 		context.beginToLogin();
 		context.loginSuccess();
 		context.logout();
-
 	}
 
 }

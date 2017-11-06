@@ -4,9 +4,6 @@ import com.qyz.dp.state.context.Context;
 
 public class LoginingState extends AbstractState {
 
-	public LoginingState(StateEnum stateEnum) {
-		super(stateEnum);
-	}
 	@Override
 	public IState connect(Context context) {
 		throw new RuntimeException("处在登录中");
@@ -14,21 +11,21 @@ public class LoginingState extends AbstractState {
 
 	@Override
 	public IState beginToLogin(Context context) {
-		IState nextState = Context.LOGINING_STATE;
+		IState nextState = StateEnum.LOGINING.getState();
 		System.out.println(String.format("已经连接并且正在登录，Switch state from %s to %s", context.getState(), nextState));
 		return nextState;
 	}
 
 	@Override
 	public IState loginFailure(Context context) {
-		IState nextState = Context.UNCONNECTED_STATE;
+		IState nextState = StateEnum.UNCONNECTED.getState();
 		System.out.println(String.format("Switch state from %s to %s", context.getState(), nextState));
 		return nextState;
 	}
 
 	@Override
 	public IState loginSuccess(Context context) {
-		IState nextState = Context.LOGIN_INTO_SYSTEM_STATE;
+		IState nextState = StateEnum.LOGIN_INTO_SYSTEM.getState();
 		System.out.println(String.format("Switch state from %s to %s", context.getState(), nextState));
 		return nextState;
 	}

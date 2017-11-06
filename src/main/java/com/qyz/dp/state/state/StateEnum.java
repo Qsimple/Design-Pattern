@@ -2,28 +2,36 @@ package com.qyz.dp.state.state;
 
 public enum StateEnum {
 
+	UNCONNECTED(0, "UNCONNECTED" , new UnconnectedState()),
 	
-	UNCONNECTED(0, "UNCONNECTED"),
+	CONNECTED(1, "CONNECTED", new ConnectedState()),
 	
-	CONNECTED(1, "CONNECTED"),
+	LOGINING(2, "LOGINING", new LoginingState()),
 	
-	LOGINING(2, "LOGINING"),
+	LOGIN_INTO_SYSTEM(3, "LOGIN_INTO_SYSTEM", new LoginIntoSystem());
 	
-	LOGIN_INTO_SYSTEM(3, "LOGIN_INTO_SYSTEM");
+	private final int key;
 	
-	private int key;
+	private final String stateStr;
 	
-	private String stateStr;
+	private final IState state;
 	
-	StateEnum(int key, String stateStr)
+	StateEnum(int key, String stateStr, IState state)
 	{
 		this.key = key;
 		
 		this.stateStr = stateStr;
+		
+		this.state = state;
 	}
 	
 	void printState()
 	{
 		System.out.println(String.format("current state: %d: %s", this.key, this.stateStr));
+	}
+	
+	public IState getState()
+	{
+		return state;
 	}
 }
