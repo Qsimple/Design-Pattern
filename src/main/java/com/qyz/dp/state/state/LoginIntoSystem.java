@@ -2,8 +2,12 @@ package com.qyz.dp.state.state;
 
 import com.qyz.dp.state.context.Context;
 
-public class LoginIntoSystem implements IState {
+public class LoginIntoSystem extends AbstractState {
 
+
+	public LoginIntoSystem(StateEnum stateEnum) {
+		super(stateEnum);
+	}
 	@Override
 	public IState connect(Context context) {
 		throw new RuntimeException("已经登录进系统");

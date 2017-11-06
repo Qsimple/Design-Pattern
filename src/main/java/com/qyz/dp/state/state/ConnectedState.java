@@ -2,8 +2,13 @@ package com.qyz.dp.state.state;
 
 import com.qyz.dp.state.context.Context;
 
-public class ConnectedState implements IState {
+public class ConnectedState extends AbstractState {
 
+	public ConnectedState(StateEnum stateEnum)
+	{
+		super(stateEnum);
+	}
+	
 	@Override
 	public IState connect(Context context) {
 		IState nextState = Context.CONNECTED_STATE;
